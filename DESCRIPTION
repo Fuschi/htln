@@ -1,15 +1,18 @@
-Package: HurdleTruncatedLogNormal
-Title: Hurdle Zero Left-Censored Log-Normal Model
-Version: 0.0.0.9000
+Package: htln
+Title: Hurdle Truncated Log-Normal Distribution for Zero-Inflated Heavy-Tailed Data
+Version: 1.0.0
 Authors@R: 
-    person("Alessandro", "Fuschi", , "alessandro.fuschi2@unibo.it", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Alessandro", "Fuschi", , "fuschi.alessandro@gmail.com", role = c("aut", "cre"))
+Description: Tools for modelling zero-inflated and heavy-tailed data using a hurdle
+    model with a truncated log-normal distribution on the log-transformed scale.
+    Designed for datasets such as next-generation sequencing (NGS) counts after a
+    log(x + 1) transformation. Includes functions for maximum likelihood estimation,
+    density evaluation, quantile computation, and random generation.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Depends:
-   R (>= 3.6.0),
-   stats (>= 3.6.0),
-   truncnorm (>= 1.0),
-   MASS (>= 7.0)
+RoxygenNote: 7.3.3
+Imports: 
+    cli (>= 3.4.1),
+    MASS,
+    truncnorm (>= 1.0-9)
