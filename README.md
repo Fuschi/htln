@@ -38,15 +38,19 @@ NGS count data and biological measurements often exhibit:
 - heavy-tailed positive values 
 - strong skewness 
 
-A **hurdle truncated log-normal model**  tries to capture these properties by combining:
+A **hurdle truncated log-normal model** tries to capture these properties by combining:
 
-1. **A hurdle component** 
-   \[
-   P(Y = 0) = \\phi
-   \]
+1. **A hurdle component**
 
-2. **A continuous component** on the log-scale 
-   \[
-   Z = \\log(Y + 1) \\sim \\mathrm{TruncNorm}(\\mu, \\sigma^2; [0, b]),
-   \]
-   where the upper bound \(b\) is automatically chosen to stabilise numerical optimisation.
+$$
+P(Y = 0) = \phi
+$$
+
+2. **A continuous component** on the log-scale
+
+$$
+Z = \log(Y + 1) \sim \mathrm{TruncNorm}(\mu, \sigma^2; [0, b])
+$$
+
+where the upper bound $b$ is automatically chosen to stabilise numerical optimisation.
+
