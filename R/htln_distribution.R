@@ -3,7 +3,6 @@
 #------------------------------------------------------------------------------#
 
 #' @rdname htln
-#' @importFrom truncnorm dtruncnorm
 #' @export
 dhtln <- function(x, phi = 0, meanlog = 0, sdlog = 1, a_log = 0, b_log = Inf) {
   

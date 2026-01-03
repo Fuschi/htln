@@ -1,6 +1,6 @@
 Package: htln
 Title: Hurdle Truncated Log-Normal Distribution for Zero-Inflated Heavy-Tailed Data
-Version: 1.0.1
+Version: 1.1.0
 Authors@R: 
     person("Alessandro", "Fuschi", , "fuschi.alessandro@gmail.com", role = c("aut", "cre"))
 Description: Tools for modelling zero-inflated and heavy-tailed data using a hurdle
@@ -14,10 +14,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports: 
     cli (>= 3.4.1),
-    MASS,
     truncnorm (>= 1.0-9)
-Collate: 
-    'htln_distribution.R'
-    'htln_doc.R'
-    'mle_htln.R'
-    'htln_methods.R'

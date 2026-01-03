@@ -55,20 +55,25 @@ nobs.htln_fit <- function(object, ...) {
 print.htln_fit <- function(x, ...) {
   cat("HTLN model fit\n")
   cat("  distribution :", x$dist, "\n")
-  cat("  success      :", x$success, "\n")
+  
+  # calcolo della "convergenza" dalla componente truncnorm
+  conv_ok <- is.list(x$optim_trunc) && isTRUE(x$optim_trunc$convergence == 0L)
+  cat("  convergence  :", if (conv_ok) "converged" else "not converged", "\n")
   cat("  nobs         :", x$nobs, "\n\n")
   
   cat("Coefficients:\n")
   print(x$coef)
   
-  # Compute AIC/BIC on the fly
-  aic_val <- try(AIC(x), silent = TRUE)
-  bic_val <- try(BIC(x), silent = TRUE)
+  # Compute logLik / AIC / BIC on the fly usando i metodi S3
+  ll  <- try(logLik(x), silent = TRUE)
+  aic <- try(AIC(x),    silent = TRUE)
+  bic <- try(BIC(x),    silent = TRUE)
   
-  cat("\nlogLik :", x$logLik, "\n")
-  cat("AIC    :", if (inherits(aic_val, "try-error")) NA_real_ else aic_val, "\n")
-  cat("BIC    :", if (inherits(bic_val, "try-error")) NA_real_ else bic_val, "\n")
+  cat("\nlogLik :", if (inherits(ll,  "try-error")) NA_real_ else as.numeric(ll), "\n")
+  cat("AIC    :", if (inherits(aic, "try-error")) NA_real_ else aic, "\n")
+  cat("BIC    :", if (inherits(bic, "try-error")) NA_real_ else bic, "\n")
   
   invisible(x)
 }
+
 
